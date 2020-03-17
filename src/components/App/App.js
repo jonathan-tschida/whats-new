@@ -14,11 +14,13 @@ class App extends Component {
     this.state = {
       appName: 'What\'s New?',
       selectedCategory: 'local',
-      entertainment,
-      health,
-      local,
-      science,
-      technology
+      categories: {
+        entertainment,
+        health,
+        local,
+        science,
+        technology
+      }
     }
   }
 
@@ -27,14 +29,14 @@ class App extends Component {
   }
 
   render () {
-    const {selectedCategory} = this.state;
+    const {selectedCategory, categories} = this.state;
     return (
       <div className="app">
         <header>
           <h1>{this.state.appName}</h1>
-          <Menu changeCategory={this.changeCategory} />
+          <Menu categories={Object.keys(categories)} changeCategory={this.changeCategory} />
         </header>
-        <NewsContainer news={this.state[selectedCategory]}/>
+        <NewsContainer news={categories[selectedCategory]}/>
       </div>
     );
   }
