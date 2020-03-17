@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NewsArticle from '../NewsArticle/NewsArticle.js';
 import './NewsContainer.css'
 
-class NewsContainer extends Component {
-
-  render() {
-    return (
-      <section>
-        {this.props.news.map(story => new NewsArticle(story).render())}
-      </section>
-    );
-  }
+const NewsContainer = ({news}) => {
+  return (
+    <section>
+      {news.map(NewsArticle)}
+    </section>
+  );
 }
 
 export default NewsContainer;

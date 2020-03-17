@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './NewsArticle.css';
 
-class NewsArticle extends Component {
-  render() {
-    return (
-      <article key={this.props.id}>
-        <h2>{this.props.headline}</h2>
-        <img src={this.props.img} alt='' />
-        <p>{this.props.description}</p>
-        <a href={this.props.url}>Link to article</a>
-      </article>
-    );
-  }
+const NewsArticle = (props) => {
+  const {id, headline, img, description, url} = props;
+  return (
+    <article key={id}>
+      <h2>{headline}</h2>
+      <img src={img} alt='' />
+      <p>{description}</p>
+      <a href={url}>Link to article</a>
+    </article>
+  )
 }
 
 export default NewsArticle;
