@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewsContainer from '../NewsContainer/NewsContainer.js';
 import Menu from '../Menu/Menu.js';
+import SearchForm from '../SearchForm/SearchForm.js';
 import entertainment from '../../data/entertainment';
 import health from '../../data/health';
 import local from '../../data/local';
@@ -12,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      appName: 'What\'s New?',
+      searchTerm: '',
       selectedCategory: 'local',
       categories: {
         entertainment,
@@ -25,18 +26,35 @@ class App extends Component {
   }
 
   changeCategory = (event) => {
-    this.setState({selectedCategory: event.target.value});
+    this.setState({searchTerm: '', selectedCategory: event.target.value});
+  }
+
+  updateSearchTerm = (phrase) => {
+    this.setState({searchTerm: phrase});
+  }
+
+  filterArticles = () => {
+    const {searchTerm, selectedCategory, categories} = this.state;
+    const articles = categories[selectedCategory];
+    const matchingArticles = articles.filter(article => {
+      let headlineMatches = article.headline.toLowerCase().includes(searchTerm.toLowerCase());
+      let descriptionMatches = article.description.toLowerCase().includes(searchTerm.toLowerCase());
+      return headlineMatches || descriptionMatches;
+    });
+    return matchingArticles;
   }
 
   render () {
-    const {selectedCategory, categories} = this.state;
+    const {searchTerm, categories} = this.state;
+    const articles = this.filterArticles(searchTerm);
     return (
-      <div className="app">
+      <div className='app'>
         <header>
-          <h1>{this.state.appName}</h1>
+          <h1>{'What\'s New?'}</h1>
+          <SearchForm updateSearchTerm={this.updateSearchTerm} />
           <Menu categories={Object.keys(categories)} changeCategory={this.changeCategory} />
         </header>
-        <NewsContainer news={categories[selectedCategory]}/>
+        <NewsContainer news={articles}/>
       </div>
     );
   }
