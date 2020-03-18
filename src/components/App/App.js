@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NewsContainer from '../NewsContainer/NewsContainer.js';
-import Menu from '../Menu/Menu.js';
 import SearchForm from '../SearchForm/SearchForm.js';
+import Menu from '../Menu/Menu.js';
+import NewsContainer from '../NewsContainer/NewsContainer.js';
 import entertainment from '../../data/entertainment';
 import health from '../../data/health';
 import local from '../../data/local';
@@ -44,18 +44,22 @@ class App extends Component {
     return matchingArticles;
   }
 
+  addDefaultSrc = (event) => {
+    const placeholderImage = 'https://furcommission.com/wp-content/uploads/New-Images/Home-Page_Slider/News.jpg';
+    event.target.src = placeholderImage;
+  }
+
   render () {
-    const {searchTerm, categories} = this.state;
-    const articles = this.filterArticles(searchTerm);
+    const articles = this.filterArticles();
     return (
-      <div className='app'>
+      <main className='app'>
         <header>
           <h1>{'What\'s New?'}</h1>
           <SearchForm updateSearchTerm={this.updateSearchTerm} />
-          <Menu categories={Object.keys(categories)} changeCategory={this.changeCategory} />
+          <Menu categories={Object.keys(this.state.categories)} changeCategory={this.changeCategory} />
         </header>
-        <NewsContainer news={articles}/>
-      </div>
+        <NewsContainer news={articles} addDefaultSrc={this.addDefaultSrc} />
+      </main>
     );
   }
 }
