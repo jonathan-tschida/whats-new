@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './NewsArticle.css';
 
 const NewsArticle = ({story, addDefaultSrc}) => {
@@ -13,6 +14,11 @@ const NewsArticle = ({story, addDefaultSrc}) => {
       <img src={img} alt={headline} onError={addDefaultSrc} />
     </article>
   )
+}
+
+NewsArticle.propTypes = {
+  story: PropTypes.object,
+  addDefaultSrc: PropTypes.instanceOf(Function)
 }
 
 export default NewsArticle;
