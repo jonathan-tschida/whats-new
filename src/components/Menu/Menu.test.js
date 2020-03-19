@@ -36,7 +36,7 @@ describe('Menu', () => {
       'science',
       'technology'
     ];
-    const { debug, getByText } = render(
+    const { getByText } = render(
       <Menu
       categories={mockCategories}
       selectedCategory={'local'}
