@@ -22,8 +22,18 @@ class SearchForm extends Component {
   render() {
     return (
       <form>
-        <input type='search' onChange={this.updateKeyPhrase} value={this.state.keyPhrase}/>
-        <button onClick={this.submitSearch}>Search</button>
+        <input
+          type='search'
+          placeholder='Search'
+          onChange={this.updateKeyPhrase}
+          value={this.state.keyPhrase}
+        />
+        <button
+          className='search-button'
+          onClick={this.submitSearch}
+        >
+        Search
+        </button>
       </form>
     );
   }

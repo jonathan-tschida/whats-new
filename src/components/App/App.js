@@ -56,7 +56,10 @@ class App extends Component {
         <header>
           <h1>{'What\'s New?'}</h1>
           <SearchForm updateSearchTerm={this.updateSearchTerm} />
-          <Menu categories={Object.keys(this.state.categories)} changeCategory={this.changeCategory} />
+          <Menu
+            categories={Object.keys(this.state.categories)}
+            selectedCategory={this.state.selectedCategory}
+            changeCategory={this.changeCategory} />
         </header>
         <NewsContainer news={articles} addDefaultSrc={this.addDefaultSrc} />
       </main>

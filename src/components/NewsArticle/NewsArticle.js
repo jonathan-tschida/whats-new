@@ -5,10 +5,12 @@ const NewsArticle = ({story, addDefaultSrc}) => {
   const {id, headline, img, description, url} = story;
   return (
     <article id={id} className='news-article'>
-      <h2>{headline}</h2>
-      <img src={img} alt='' onError={addDefaultSrc} />
-      <p>{description}</p>
-      <a href={url}>Link to article</a>
+      <div>
+        <h2>{headline}</h2>
+        <a href={url}>Link to article</a>
+        <p>{description}</p>
+      </div>
+      <img src={img} alt={headline} onError={addDefaultSrc} />
     </article>
   )
 }

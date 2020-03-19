@@ -2,10 +2,12 @@ import React from 'react';
 import NewsArticle from '../NewsArticle/NewsArticle.js';
 import './NewsContainer.css'
 
-const NewsContainer = ({news}) => {
+const NewsContainer = ({news, addDefaultSrc}) => {
   return (
     <section>
-      {news.map(NewsArticle)}
+      {news.map(story => (
+        <NewsArticle key={story.id} story={story} addDefaultSrc={addDefaultSrc}/>
+      ))}
     </section>
   );
 }
