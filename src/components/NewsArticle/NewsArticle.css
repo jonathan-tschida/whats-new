@@ -1,0 +1,25 @@
+.news-article {
+  display: flex;
+  flex-flow: row nowrap;
+  text-align: left;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  max-width: 50em;
+  padding: 1em;
+  margin: 0 1em 1em 1em;
+}
+
+a {
+  font-size: .8em;
+}
+
+img {
+  width: 10em;
+  border-radius: 8px;
+  margin-left: 1em;
+}
+
+p {
+  margin-top: .5em;
+}

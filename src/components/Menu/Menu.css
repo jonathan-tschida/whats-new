@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 40em;
+  margin: 1em 0;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  color: #0078D3;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: .5em 1em;
+}
+
+.selected {
+  background-color: #0078D3;
+  border: none;
+  color: white;
+}

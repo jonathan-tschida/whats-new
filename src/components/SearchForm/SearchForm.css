@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  flex-grow: 1;
+  margin: 1em 5em;
+}
+
+input {
+  flex-grow: 1;
+  background-color: #F6F7F8;
+  border: 1px solid #EEEFF1;
+  border-radius: 5px;
+  color: #868686;
+  font-size: 1em;
+  padding: .5em;
+}
+
+input:hover,
+input:focus {
+  background-color: #FFFFFF;
+}
+
+.search-button {
+  background-color: #0078D3;
+  border: none;
+  color: white;
+  margin-left: 1em;
+}
